@@ -1,0 +1,473 @@
+{
+  "intents": [
+    {
+      "intent": "certificate",
+      "examples": [
+        {
+          "text": "training certificate"
+        },
+        {
+          "text": "Will I get a training certificate at the end of the training"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "goodbey",
+      "examples": [
+        {
+          "text": "goodbay"
+        },
+        {
+          "text": "ok,thanks"
+        },
+        {
+          "text": "thanks"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "place",
+      "examples": [
+        {
+          "text": "What is this place"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "presence_tr",
+      "examples": [
+        {
+          "text": "How can I attend the training"
+        },
+        {
+          "text": "note"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "sm1",
+      "examples": [
+        {
+          "text": "Training paths"
+        },
+        {
+          "text": "what are Training paths"
+        }
+      ],
+      "description": "Training paths"
+    },
+    {
+      "intent": "smartm",
+      "examples": [
+        {
+          "text": "What is the smart methods?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "tasks",
+      "examples": [
+        {
+          "text": "delivery tasks"
+        },
+        {
+          "text": "How is the task delivery mechanism?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "yes",
+      "examples": [
+        {
+          "text": "ok"
+        },
+        {
+          "text": "sure"
+        },
+        {
+          "text": "yes"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "sm",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Applications of industrial intelligence in mobile robots",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Electronics and Power Engineering",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Industrial and systems engineering",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Internet of Things applications",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "mechanical engineering",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-date",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-time",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_2_1625557648595",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "goodbey",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "You are most welcome, thank you for your presence."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#goodbey",
+      "dialog_node": "node_2_1625557648595",
+      "previous_sibling": "node_9_1625557472483"
+    },
+    {
+      "type": "standard",
+      "title": "Training paths",
+      "output": {
+        "generic": [
+          {
+            "title": "Training paths",
+            "options": [
+              {
+                "label": "mechanical engineering",
+                "value": {
+                  "input": {
+                    "text": "3D - engineering and mechanical drawing - mechanical movement"
+                  }
+                }
+              },
+              {
+                "label": "Electronics and Power Engineering",
+                "value": {
+                  "input": {
+                    "text": "Programming as C - Programming as C Embedded - Writing algorithms and structuring data - Design and installation of electronic rotors - geometry calculations"
+                  }
+                }
+              },
+              {
+                "label": "Applications of industrial intelligence in mobile robots",
+                "value": {
+                  "input": {
+                    "text": "The beauty of work: Programming with Python - Dealing with the ROS Choll system - Programming using  - Tensor Flow"
+                  }
+                }
+              },
+              {
+                "label": "Internet of Things applications",
+                "value": {
+                  "input": {
+                    "text": "The beauty of work: Programming with PHP and Java - MySQL Databases - Using Fire IBM Watson - flutter use - Base"
+                  }
+                }
+              },
+              {
+                "label": "Industrial and systems engineering",
+                "value": {
+                  "input": {
+                    "text": "Engineering project management - industrial planning for production lines - engineering project analysis Innovative and complex - practical application to actual projects"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "conditions": "#sm1",
+      "dialog_node": "node_3_1625749889317",
+      "previous_sibling": "node_4_1625751928767"
+    },
+    {
+      "type": "standard",
+      "title": "choose path",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Important note: This training is not a traditional training course, but rather an on-the-job training\nIt relies heavily on self-learning, your technical skills and your ability to solve problems\nEngineering and software in creative ways."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Do you want to know the times?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1625749889317",
+      "conditions": "anything_else",
+      "dialog_node": "node_3_1625750934436"
+    },
+    {
+      "type": "standard",
+      "title": "the times",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Daily from Sunday to Thursday from 5 pm to 7 pm."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#yes",
+      "dialog_node": "node_4_1625751928767",
+      "previous_sibling": "node_8_1625752523306"
+    },
+    {
+      "type": "standard",
+      "title": "delivery tasks",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Raise codes, designs, algorithms and all requirements at the expense of the trainee using\nA GitHub account dedicated to the trainee."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#tasks",
+      "dialog_node": "node_4_1625753821151",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Smart Methods"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "Welcome",
+      "conditions": "#place",
+      "dialog_node": "node_7_1625557124039"
+    },
+    {
+      "type": "standard",
+      "title": "presence training ",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Via Zoom and YouTube"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#presence_tr",
+      "dialog_node": "node_8_1625752523306",
+      "previous_sibling": "node_9_1625753498049"
+    },
+    {
+      "type": "standard",
+      "title": "smartm",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "A company that manufactures robots, 3D printing and software."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#smartm",
+      "dialog_node": "node_9_1625557472483",
+      "previous_sibling": "node_3_1625749889317"
+    },
+    {
+      "type": "standard",
+      "title": "note",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Important note: This training is not a traditional training course, but rather an on-the-job training\nIt relies heavily on self-learning, your technical skills and your ability to solve problems\nEngineering and software in creative ways."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1625752523306",
+      "conditions": "anything_else",
+      "dialog_node": "node_9_1625752699558"
+    },
+    {
+      "type": "standard",
+      "title": "training certificate",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "YES ,The certificate is given to the trainee if he completes a maximum of four tasks."
+              },
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#certificate",
+      "dialog_node": "node_9_1625753498049",
+      "previous_sibling": "node_4_1625753821151"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hi , Can you help me find the place?"
+              },
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "intent_classification": {
+      "training_backend_version": "v2"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "talk",
+  "language": "en",
+  "description": ""
+}
