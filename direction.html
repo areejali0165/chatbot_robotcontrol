@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> direction panel </title>
+<style>
+
+body {
+  
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+  background-color: lightblue;
+}
+
+</style>
+</head>
+
+<body style="background :url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdlxxBw6T-KZU3TXD2q7AgDBFC424mVjhvng&usqp=CAU ); background-size:100%" ;>
+<div><h2> The direction control panel</h2></div>
+<form action="page.php" method="post">
+
+ <div class="forward">
+ <input type="submit" value="Forward" id="forward" name="forward" style="font-size:50px; border-radius:50px;">
+ </div>
+ 
+ 
+ <div class="center">
+ <input type="submit" value="Left" id="left" name ="left" style="font-size:50px; border-radius:40px;" >
+ <input type="submit" value="Stop" id="stop" name="stop" style="font-size:50px; border-radius:40px; color:red;" >
+ <input type="submit" value="Right" id="right" name="right" style="font-size:50px; border-radius:40px;"></div>
+ 
+ <div class="backward">
+ <input type="submit" value="Backward" id="backward" name="backward" style="font-size:50px; border-radius:40px;"></div>
+ 
+ <script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "68323fb4-bd7c-4898-abe9-e4858078eddc", // The ID of this integration.
+      region: "eu-de", // The region your integration is hosted in.
+      serviceInstanceID: "9b230163-e682-4dba-9e57-d7279f5334eb", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
+ 
+</form> 
+</body>
+</html>
